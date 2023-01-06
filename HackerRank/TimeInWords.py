@@ -33,7 +33,7 @@ def timeInWords(h, m):
         result += num2Words(m) + ' past '
         result += num2Words(h)
     elif(m==45):
-        result += num2Words(m) + ' to '
+        result += num2Words(60-m) + ' to '
         if(h+1>12): result += num2Words(1)
         else: result += num2Words(h+1)
     elif(m<30):
@@ -53,11 +53,15 @@ def num2Words(num):
             11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 
             15: 'quarter', 16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 
             19: 'Nineteen', 20: 'Twenty', 30: 'half'}
-    return num2words[num].lower()
+    if(num<=20 or num == 30):
+        return num2words[num].lower()
+    elif(num>20 and num <30):
+        return num2words[20].lower() + ' ' + num2words[num-20].lower()
+
 
 timeInWords(3,0)
 timeInWords(5,47)
-timeInWords(3,15)
+timeInWords(7,29)
 
 # if __name__ == '__main__':
 #     fptr = open(os.environ['OUTPUT_PATH'], 'w')
