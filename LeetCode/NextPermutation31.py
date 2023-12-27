@@ -11,7 +11,9 @@ class Solution:
             bpp = idx-1
             bpv = nums[idx-1]
             break
-        if(bpp == -1): return nums
+        if(bpp == -1): 
+            nums.reverse()
+            return nums
         nov = 2**63
         nop = -1
         for idx in range(len(nums)-1, bpp, -1):    
@@ -32,7 +34,8 @@ class Solution:
 def test_answer():
     S = Solution()
     assert S.nextPermutation([1,2,3]) == [1,3,2]
-    assert S.nextPermutation([3,2,1]) == [3,2,1]
+    assert S.nextPermutation([3,2,1]) == [1,2,3]
+    assert S.nextPermutation([1,3,2]) == [2,1,3]
     assert S.nextPermutation([4,3,2,5,1,3]) == [4,3,2,5,3,1]
     assert S.nextPermutation([4,3,2,5,3,1]) == [4,3,3,1,2,5]
 

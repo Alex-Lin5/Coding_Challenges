@@ -1,4 +1,9 @@
-SumDict = dict()
-SumDict[32] = 0
-SumDict[2] = 1
-print(2 in SumDict)
+import pytest
+def inc(x):
+    return x + 1
+
+def test_inc():
+    assert 4==5
+    assert inc(3) == 5
+
+test_inc()
